@@ -4,13 +4,16 @@ import models.Abonament;
 import models.Cennik;
 
 public class Dlugi extends Pakiet{
+
+    public static final String TYPE = "długotermoniwy";
+
     public Dlugi(String imie, int ilosc) {
         super(imie, ilosc);
     }
 
     @Override
     public String getType() {
-        return "długotermoniwy";
+        return TYPE;
     }
 
     @Override
@@ -23,6 +26,11 @@ public class Dlugi extends Pakiet{
         if(abonament == Abonament.TAK) return cena.getMap().get(2);
         return cena.getMap().get(1);
 
+    }
+
+    @Override
+    public boolean isEqualsType(Cennik.Termin termin) {
+        return termin == Cennik.Termin.DLUGI;
     }
 
 }

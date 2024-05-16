@@ -12,9 +12,13 @@ public class Koszyk extends ArrayList<Pakiet> {
         this.klient = klient;
     }
 
+
     @Override
     public String toString() {
         String str = "";
+
+        if(size() == 0)
+            return "-- pusto";
 
         for (int i = 0; i < this.size(); i++) {
             Pakiet pakiet = this.get(i);
@@ -24,4 +28,7 @@ public class Koszyk extends ArrayList<Pakiet> {
         return str;
     }
 
+    public Klient getKlient() {
+        return klient;
+    }
 }

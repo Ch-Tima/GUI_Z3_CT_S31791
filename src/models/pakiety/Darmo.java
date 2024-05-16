@@ -4,13 +4,16 @@ import models.Abonament;
 import models.Cennik;
 
 public class Darmo extends Pakiet{
+
+    public static final String TYPE = "darmowy";
+
     public Darmo(String imie, int ilosc) {
         super(imie, ilosc);
     }
 
     @Override
     public String getType() {
-        return "darmowy";
+        return TYPE;
     }
 
     @Override
@@ -21,6 +24,11 @@ public class Darmo extends Pakiet{
         if(cena == null) return -404;
 
         return 0;
+    }
+
+    @Override
+    public boolean isEqualsType(Cennik.Termin termin) {
+        return termin == Cennik.Termin.DARMO;
     }
 
     @Override

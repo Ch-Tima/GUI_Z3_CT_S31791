@@ -2,7 +2,8 @@ package models.pakiety;
 
 import models.Abonament;
 import models.Cennik;
-import models.Klient;
+
+import java.util.Objects;
 
 public abstract class Pakiet {
 
@@ -27,6 +28,18 @@ public abstract class Pakiet {
     public abstract int getCena(Abonament abonament);
 
 
+    public void setIlosc(int ilosc) {
+        this.ilosc = ilosc;
+    }
 
+    public abstract boolean isEqualsType(Cennik.Termin termin);
+
+
+
+    public boolean equals(Pakiet p) {
+        if(p == null) return false;
+        if(this == p) return true;
+        return this.getType().equals(p.getType()) && this.getImie().equals(p.getImie());
+    }
 
 }

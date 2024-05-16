@@ -4,13 +4,15 @@ import models.Abonament;
 import models.Cennik;
 
 public class Sredni extends Pakiet{
+    public static final String TYPE = "średnioterminowy";
+
     public Sredni(String imie, int ilosc) {
         super(imie, ilosc);
     }
 
     @Override
     public String getType() {
-        return "średnioterminowy";
+        return TYPE;
     }
 
     @Override
@@ -25,6 +27,8 @@ public class Sredni extends Pakiet{
 
     }
 
-
+    public boolean isEqualsType(Cennik.Termin termin){
+        return termin == Cennik.Termin.SREDNI;
+    }
 
 }

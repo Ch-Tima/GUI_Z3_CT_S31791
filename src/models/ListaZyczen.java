@@ -18,6 +18,9 @@ public class ListaZyczen extends ArrayList<Pakiet> {
     public String toString() {
         String str = "";
 
+        if(size() == 0)
+            return "-- pusto";
+
         for (int i = 0; i < this.size(); i++) {
             Pakiet pakiet = this.get(i);
             int cena = pakiet.getCena(klient.getAbonament());

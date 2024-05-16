@@ -4,13 +4,16 @@ import models.Abonament;
 import models.Cennik;
 
 public class Krotki extends Pakiet{
+
+    public static final String TYPE = "krótkoterminowy";
+
     public Krotki(String imie, int ilosc) {
         super(imie, ilosc);
     }
 
     @Override
     public String getType() {
-        return "krótkoterminowy";
+        return TYPE;
     }
 
     @Override
@@ -24,5 +27,10 @@ public class Krotki extends Pakiet{
         else if(getIlosc() > 1 && getIlosc() < 4) return cena.getMap().get(2);
         else return cena.getMap().get(3);
 
+    }
+
+    @Override
+    public boolean isEqualsType(Cennik.Termin termin) {
+        return termin == Cennik.Termin.KROTKI;
     }
 }
